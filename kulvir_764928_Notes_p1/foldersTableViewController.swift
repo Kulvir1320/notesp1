@@ -19,7 +19,10 @@ class foldersTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.navigationItem.rightBarButtonItem?.tintColor = .black
         folders = []
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.view.backgroundColor = .lightGray
         
     }
 
@@ -121,21 +124,24 @@ class foldersTableViewController: UITableViewController {
     @IBAction func newFolder(_ sender: Any) {
 
          let altercontroller = UIAlertController(title: "New Folder", message: "Enter a name for this folder", preferredStyle: .alert)
-         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-
+         
         
          altercontroller.addTextField { (textField) in
              textField.placeholder = "name"
              
          }
-         altercontroller.addAction(UIAlertAction(title: "add item", style: .default, handler: { (action) in
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+        cancelAction.setValue(UIColor.brown, forKey: "titleTextColor")
+        altercontroller.addAction(cancelAction)
+         altercontroller.addAction(UIAlertAction(title: "Add item", style: .default, handler: { (action) in
              let name = altercontroller.textFields?.first?.text
             self.folders?.append(name!)
             self.tableView.reloadData()
             
          
          }))
-         altercontroller.addAction(cancelAction)
+        
+        altercontroller.view.tintColor = .black
     
      self.present(altercontroller, animated: true, completion: nil)
     }
