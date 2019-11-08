@@ -13,6 +13,8 @@
 		9B3B10692374C081009B8CAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B10672374C081009B8CAF /* Main.storyboard */; };
 		9B3B106B2374C081009B8CAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B106A2374C081009B8CAF /* Assets.xcassets */; };
 		9B3B106E2374C081009B8CAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B106C2374C081009B8CAF /* LaunchScreen.storyboard */; };
+		9B3B10762374C1B1009B8CAF /* foldersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3B10752374C1B1009B8CAF /* foldersTableViewController.swift */; };
+		9B3B10792374CB27009B8CAF /* folder-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B10782374CB27009B8CAF /* folder-icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		9B3B106A2374C081009B8CAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9B3B106D2374C081009B8CAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9B3B106F2374C081009B8CAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9B3B10752374C1B1009B8CAF /* foldersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = foldersTableViewController.swift; sourceTree = "<group>"; };
+		9B3B10782374CB27009B8CAF /* folder-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "folder-icon.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +60,25 @@
 		9B3B10602374C081009B8CAF /* kulvir_764928_Notes_p1 */ = {
 			isa = PBXGroup;
 			children = (
+				9B3B10772374CAF2009B8CAF /* New Group */,
 				9B3B10612374C081009B8CAF /* AppDelegate.swift */,
 				9B3B10632374C081009B8CAF /* SceneDelegate.swift */,
 				9B3B10652374C081009B8CAF /* ViewController.swift */,
 				9B3B10672374C081009B8CAF /* Main.storyboard */,
 				9B3B106A2374C081009B8CAF /* Assets.xcassets */,
 				9B3B106C2374C081009B8CAF /* LaunchScreen.storyboard */,
+				9B3B10752374C1B1009B8CAF /* foldersTableViewController.swift */,
 				9B3B106F2374C081009B8CAF /* Info.plist */,
 			);
 			path = kulvir_764928_Notes_p1;
+			sourceTree = "<group>";
+		};
+		9B3B10772374CAF2009B8CAF /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				9B3B10782374CB27009B8CAF /* folder-icon.png */,
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +139,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B3B10792374CB27009B8CAF /* folder-icon.png in Resources */,
 				9B3B106E2374C081009B8CAF /* LaunchScreen.storyboard in Resources */,
 				9B3B106B2374C081009B8CAF /* Assets.xcassets in Resources */,
 				9B3B10692374C081009B8CAF /* Main.storyboard in Resources */,
@@ -140,6 +155,7 @@
 			files = (
 				9B3B10662374C081009B8CAF /* ViewController.swift in Sources */,
 				9B3B10622374C081009B8CAF /* AppDelegate.swift in Sources */,
+				9B3B10762374C1B1009B8CAF /* foldersTableViewController.swift in Sources */,
 				9B3B10642374C081009B8CAF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
