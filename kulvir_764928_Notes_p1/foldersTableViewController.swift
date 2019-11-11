@@ -10,7 +10,7 @@ import UIKit
 
 class foldersTableViewController: UITableViewController {
     var folders: [String]?
-
+    var dic = [String : String]()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,6 +23,7 @@ class foldersTableViewController: UITableViewController {
         folders = []
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.view.backgroundColor = .lightGray
+        
         
     }
 

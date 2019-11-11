@@ -21,6 +21,7 @@ class notesTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.rightBarButtonItem = self.editButtonItem
+        notes = []
     }
 
     // MARK: - Table view data source
@@ -38,14 +39,16 @@ class notesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard notes != nil else {
-            return UITableViewCell()
-        }
-        let cell = tableView.dequeueReusableCell(withIdentifier: "notesName", for: indexPath)
+//        guard notes != nil else {
+//            return UITableViewCell()
+//        }
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "notesName") {
          cell.textLabel?.text = notes![indexPath.row]
         // Configure the cell...
 
         return cell
+        }
+        return UITableViewCell()
     }
     
     
@@ -96,10 +99,10 @@ class notesTableViewController: UITableViewController {
         if let detailview = segue.destination as? notesDetailViewController {
             detailview.notesTable = self
             
-            if let tableViewCell = sender as? UITableViewCell{
+           if let tableViewCell = sender as? UITableViewCell{
                if let index = tableView.indexPath(for: tableViewCell)?.row {
                  detailview.textString = notes![index]
-//                    curIndex = index
+                    curIndex = index
             }
               }
     
@@ -109,16 +112,21 @@ class notesTableViewController: UITableViewController {
 
     
     func updateText(text: String) {
-//    guard notes != nil  else {
-//        return
-//            
-//    }
-//        notes![curIndex] = text
-//    
-//    let indexPath = IndexPath(item: curIndex, section: 0)
-//      tableView.reloadRows(at: [indexPath], with: .middle)
-        notes?.append(text)
-        notesTable.reloadData()
+    guard notes != nil && curIndex != -1 else {
+         notes!.append(text)
+    notesTable.reloadData()
+
+        return
+
+    }
+        notes![curIndex] = text
+
+    let indexPath = IndexPath(item: curIndex, section: 0)
+      tableView.reloadRows(at: [indexPath], with: .middle)
+        curIndex = -1
+//      notes!.append(text)
+//       notesTable.reloadData()
+
         
 }
 }
