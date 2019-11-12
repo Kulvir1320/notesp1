@@ -9,8 +9,9 @@
 import UIKit
 
 class foldersTableViewController: UITableViewController {
-    var folders: [String]?
-    var dic = [String : String]()
+   // var folders: [String]?
+    var curIndex = -1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,7 +21,7 @@ class foldersTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         self.navigationItem.rightBarButtonItem?.tintColor = .black
-        folders = []
+       // folders = []
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.view.backgroundColor = .lightGray
         
@@ -36,21 +37,21 @@ class foldersTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-       return folders?.count ?? 0
+        return FoldersStucture.foldersData.count
         
     }
 
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard folders != nil else {
-            return UITableViewCell()
-        }
+//        guard folders != nil else {
+//            return UITableViewCell()
+//        }
         let cell = tableView.dequeueReusableCell(withIdentifier: "folderName", for: indexPath)
         // let cell = UITableViewCell(style: .value1, reuseIdentifier: "")
-        cell.textLabel?.text = folders![indexPath.row]
+        cell.textLabel?.text = FoldersStucture.foldersData[indexPath.row].folder
         cell.imageView?.image = UIImage(named: "folder-icon")
-
+       cell.detailTextLabel?.text = "\(FoldersStucture.foldersData[indexPath.row].notes.count)"
         // Configure the cell...
 
         return cell
@@ -68,7 +69,7 @@ class foldersTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let actions = UIContextualAction(style: .destructive, title: "Delete") { (action, view, _) in
-            self.folders?.remove(at: indexPath.row)
+            FoldersStucture.foldersData.remove(at: indexPath.row)
             self.tableView.reloadData()
         }
         
@@ -96,7 +97,10 @@ class foldersTableViewController: UITableViewController {
         }    
     }
     
-*/
+*/ func reloadfolder()
+{
+    tableView.reloadData()
+    }
     
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
@@ -112,15 +116,24 @@ class foldersTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if let detail = segue.destination as? notesTableViewController{
+            detail.FoldersDelegate = self
+            
+            if let tableViewCell = sender as? UITableViewCell{
+                if let index = tableView.indexPath(for: tableViewCell)?.row {
+                curIndex = index
+                }
+            }
+        }
     }
-    */
+    
     
     @IBAction func newFolder(_ sender: Any) {
 
@@ -129,22 +142,42 @@ class foldersTableViewController: UITableViewController {
         
          altercontroller.addTextField { (textField) in
              textField.placeholder = "name"
-             
-         }
+        }
+        
+        
         let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
         cancelAction.setValue(UIColor.brown, forKey: "titleTextColor")
         altercontroller.addAction(cancelAction)
-         altercontroller.addAction(UIAlertAction(title: "Add item", style: .default, handler: { (action) in
-             let name = altercontroller.textFields?.first?.text
-            self.folders?.append(name!)
-            self.tableView.reloadData()
-            
-         
-         }))
         
-        altercontroller.view.tintColor = .black
-    
-     self.present(altercontroller, animated: true, completion: nil)
-    }
+        altercontroller.addAction(UIAlertAction(title: "Add item", style: .default, handler: { (action) in
+             
+            let name = altercontroller.textFields?.first?.text
+             let foldername = FoldersStucture(folder: name!, notes: [])
+            
+            var flag = false
+            for i in FoldersStucture.foldersData {
+                let name = foldername.folder
+                if name == i.folder{
+                   flag = true
+                    break
+                }
+                
+            }
+                if flag
+                {
+                   let alter = UIAlertController(title: "Name Taken", message: "Please choose a diifrent name", preferredStyle: .alert)
+                    let okAction = UIAlertAction(title: "Ok", style: .destructive, handler: nil)
+                    alter.addAction(okAction)
+                     self.present(alter, animated: true, completion: nil)
+                }
+                else {
+                    FoldersStucture.foldersData.append(foldername)
+                               self.tableView.reloadData()
+                }
+            } ))
+
+        self.present(altercontroller, animated: true, completion: nil)
+        altercontroller.view.tintColor = UIColor.black
+}
 
 }

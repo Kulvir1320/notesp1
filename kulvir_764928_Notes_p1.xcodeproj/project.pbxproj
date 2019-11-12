@@ -17,6 +17,8 @@
 		9B3B10792374CB27009B8CAF /* folder-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B10782374CB27009B8CAF /* folder-icon.png */; };
 		9B3B7BA02379DCCA00EB74D2 /* notesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3B7B9F2379DCCA00EB74D2 /* notesTableViewController.swift */; };
 		9B3B7BA22379E83B00EB74D2 /* notesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3B7BA12379E83B00EB74D2 /* notesDetailViewController.swift */; };
+		9B3C9464237B2A3500575C99 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3C9463237B2A3500575C99 /* File.swift */; };
+		9B3C9466237B6EB000575C99 /* MoveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3C9465237B6EB000575C99 /* MoveViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		9B3B10782374CB27009B8CAF /* folder-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "folder-icon.png"; sourceTree = "<group>"; };
 		9B3B7B9F2379DCCA00EB74D2 /* notesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notesTableViewController.swift; sourceTree = "<group>"; };
 		9B3B7BA12379E83B00EB74D2 /* notesDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notesDetailViewController.swift; sourceTree = "<group>"; };
+		9B3C9463237B2A3500575C99 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		9B3C9465237B6EB000575C99 /* MoveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,8 +71,10 @@
 				9B3B10772374CAF2009B8CAF /* New Group */,
 				9B3B10612374C081009B8CAF /* AppDelegate.swift */,
 				9B3B10632374C081009B8CAF /* SceneDelegate.swift */,
+				9B3C9463237B2A3500575C99 /* File.swift */,
 				9B3B10652374C081009B8CAF /* ViewController.swift */,
 				9B3B10672374C081009B8CAF /* Main.storyboard */,
+				9B3C9465237B6EB000575C99 /* MoveViewController.swift */,
 				9B3B106A2374C081009B8CAF /* Assets.xcassets */,
 				9B3B106C2374C081009B8CAF /* LaunchScreen.storyboard */,
 				9B3B10752374C1B1009B8CAF /* foldersTableViewController.swift */,
@@ -160,7 +166,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B3B10662374C081009B8CAF /* ViewController.swift in Sources */,
+				9B3C9466237B6EB000575C99 /* MoveViewController.swift in Sources */,
 				9B3B7BA22379E83B00EB74D2 /* notesDetailViewController.swift in Sources */,
+				9B3C9464237B2A3500575C99 /* File.swift in Sources */,
 				9B3B7BA02379DCCA00EB74D2 /* notesTableViewController.swift in Sources */,
 				9B3B10622374C081009B8CAF /* AppDelegate.swift in Sources */,
 				9B3B10762374C1B1009B8CAF /* foldersTableViewController.swift in Sources */,
