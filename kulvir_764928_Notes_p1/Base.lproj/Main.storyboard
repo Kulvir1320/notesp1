@@ -57,7 +57,7 @@
                             <color key="tintColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
                         <barButtonItem image="folder" catalog="system" id="0iY-zb-yDM">
-                            <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="newFolder:" destination="tB2-D3-eEi" id="WQh-SQ-IRM"/>
                             </connections>
@@ -102,11 +102,13 @@
                     </tableView>
                     <toolbarItems>
                         <barButtonItem title="delete" image="trash" catalog="system" id="ZNV-mL-XyZ">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="deleteAction:" destination="Rcy-zv-Kom" id="LQp-ho-cW0"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem title="move" image="square.and.arrow.down" catalog="system" id="McR-Kv-qe1">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <segue destination="yzc-59-hwb" kind="popoverPresentation" popoverAnchorBarButtonItem="McR-Kv-qe1" id="Mey-EA-ADo">
                                     <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
@@ -115,6 +117,7 @@
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="6uw-m7-fQg"/>
                         <barButtonItem title="Item" image="pencil.and.ellipsis.rectangle" catalog="system" id="c4f-zb-YXy">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <segue destination="Xxt-7d-DCM" kind="show" id="W0g-fM-1xM"/>
                             </connections>
@@ -122,6 +125,7 @@
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Notes" id="FrN-LK-bhj">
                         <barButtonItem key="rightBarButtonItem" title="..." image="ellipsis" catalog="system" id="uGo-oh-Xq8">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="editButton:" destination="Rcy-zv-Kom" id="jLb-fy-gF9"/>
                             </connections>
