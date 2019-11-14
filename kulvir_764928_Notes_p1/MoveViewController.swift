@@ -10,7 +10,7 @@ import UIKit
 
 class MoveViewController: UIViewController , UITableViewDelegate , UITableViewDataSource {
     
-    
+    var notesDelegate: notesTableViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,16 +23,30 @@ class MoveViewController: UIViewController , UITableViewDelegate , UITableViewDa
        }
        
        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-           let cell = tableView.dequeueReusableCell(withIdentifier: "folderName", for: indexPath)
-                  // let cell = UITableViewCell(style: .value1, reuseIdentifier: "")
+          
+                let cell = UITableViewCell(style: .value1, reuseIdentifier: "")
                   cell.textLabel?.text = FoldersStucture.foldersData[indexPath.row].folder
-                  cell.imageView?.image = UIImage(named: "folder-icon")
-                 cell.detailTextLabel?.text = "\(FoldersStucture.foldersData[indexPath.row].notes.count)"
+                 
                   // Configure the cell...
 
                   return cell
         
+        
        }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+           let alertController = UIAlertController(title: "Move to \(FoldersStucture.foldersData[indexPath.row].folder)", message: "Are you sure", preferredStyle: .alert)
+           let noAction = UIAlertAction(title: "No", style: .default, handler: nil)
+           let yesAction = UIAlertAction(title: "Move", style: .default) { (action) in
+            self.notesDelegate?.movingNotes(index: indexPath.row)
+//               self.notesDelegate?.movingNotes(index: indexPath.row)
+               self.presentingViewController?.dismiss(animated: true, completion: nil)
+           }
+           alertController.addAction(noAction)
+           alertController.addAction(yesAction)
+           self.present(alertController, animated: true, completion: nil)
+       }
+          
+
        
     /*
     // MARK: - Navigation

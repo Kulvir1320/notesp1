@@ -20,7 +20,7 @@ class foldersTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.rightBarButtonItem = self.editButtonItem
-        self.navigationItem.rightBarButtonItem?.tintColor = .black
+        self.navigationItem.rightBarButtonItem?.tintColor = .white
        // folders = []
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.view.backgroundColor = .lightGray
@@ -47,15 +47,17 @@ class foldersTableViewController: UITableViewController {
 //        guard folders != nil else {
 //            return UITableViewCell()
 //        }
-        let cell = tableView.dequeueReusableCell(withIdentifier: "folderName", for: indexPath)
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "folderName") {
         // let cell = UITableViewCell(style: .value1, reuseIdentifier: "")
         cell.textLabel?.text = FoldersStucture.foldersData[indexPath.row].folder
         cell.imageView?.image = UIImage(named: "folder-icon")
        cell.detailTextLabel?.text = "\(FoldersStucture.foldersData[indexPath.row].notes.count)"
+            cell.detailTextLabel?.textColor = UIColor.white
         // Configure the cell...
 
         return cell
     }
+        return UITableViewCell() }
 
     override func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
         return false
@@ -146,7 +148,7 @@ class foldersTableViewController: UITableViewController {
         
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
-        cancelAction.setValue(UIColor.brown, forKey: "titleTextColor")
+        cancelAction.setValue(UIColor.orange, forKey: "titleTextColor")
         altercontroller.addAction(cancelAction)
         
         altercontroller.addAction(UIAlertAction(title: "Add item", style: .default, handler: { (action) in
