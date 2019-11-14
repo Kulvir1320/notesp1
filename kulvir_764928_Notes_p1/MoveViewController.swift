@@ -33,8 +33,17 @@ class MoveViewController: UIViewController , UITableViewDelegate , UITableViewDa
         
         
        }
+    
+    
+    
+    @IBAction func cancel(_ sender: UIButton) {
+        
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
+        
+        
+    }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-           let alertController = UIAlertController(title: "Move to \(FoldersStucture.foldersData[indexPath.row].folder)", message: "Are you sure", preferredStyle: .alert)
+           let alertController = UIAlertController(title: "Move to \(FoldersStucture.foldersData[indexPath.row].folder)", message: "Are you sure?", preferredStyle: .alert)
            let noAction = UIAlertAction(title: "No", style: .default, handler: nil)
            let yesAction = UIAlertAction(title: "Move", style: .default) { (action) in
             self.notesDelegate?.movingNotes(index: indexPath.row)

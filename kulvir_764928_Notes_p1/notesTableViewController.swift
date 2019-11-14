@@ -187,14 +187,15 @@ class notesTableViewController: UITableViewController {
     
     func movingNotes(index: Int){
            selectedRows = tableView.indexPathsForSelectedRows!
-           
+        
            for i in selectedRows! {
                let notetoMove = FoldersStucture.foldersData[(FoldersDelegate?.curIndex)!].notes[i.row]
-               FoldersStucture.foldersData[(FoldersDelegate?.curIndex)!].notes.append(notetoMove)
+               FoldersStucture.foldersData[index].notes.append(notetoMove)
                
            }
+        
            deleteRow()
-           
+        
        }
      func deleteRow()
      {
@@ -205,14 +206,15 @@ class notesTableViewController: UITableViewController {
                 item.append(FoldersStucture.foldersData[(FoldersDelegate?.curIndex)!].notes[indexPath.row])
             }
             for i in item {
-                if let index = FoldersStucture.foldersData[(FoldersDelegate?.curIndex)!].notes.index(of: i)
+                if let index = FoldersStucture.foldersData[(FoldersDelegate?.curIndex)!].notes.firstIndex(of: i)
                 {
                     FoldersStucture.foldersData[(FoldersDelegate?.curIndex)!].notes.remove(at: index)
                 }
             }
-            tableView.beginUpdates()
-            tableView.deleteRows(at: selectedRows!, with: .automatic)
-            tableView.endUpdates()
+            tableView.reloadData()
+            //tableView.beginUpdates()
+            //tableView.deleteRows(at: selectedRows!, with: .automatic)
+            //tableView.endUpdates()
             FoldersDelegate?.tableView.reloadData()
         }
     }

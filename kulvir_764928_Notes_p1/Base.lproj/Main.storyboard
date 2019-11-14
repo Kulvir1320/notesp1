@@ -78,7 +78,7 @@
             <objects>
                 <tableViewController id="Rcy-zv-Kom" customClass="notesTableViewController" customModule="kulvir_764928_Notes_p1" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="E22-rG-HGz">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
@@ -143,7 +143,7 @@
             <objects>
                 <viewController id="Xxt-7d-DCM" customClass="notesDetailViewController" customModule="kulvir_764928_Notes_p1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qUB-h2-lR9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lO5-9a-Vx3">
@@ -226,7 +226,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
-                                    <segue destination="Rcy-zv-Kom" kind="show" id="DBj-ze-DGI"/>
+                                    <action selector="cancel:" destination="yzc-59-hwb" eventType="touchUpInside" id="tTy-IB-JFs"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -247,8 +247,6 @@
         <image name="trash" catalog="system" width="60" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Mey-EA-ADo"/>
         <segue reference="W0g-fM-1xM"/>
-        <segue reference="DBj-ze-DGI"/>
     </inferredMetricsTieBreakers>
 </document>
